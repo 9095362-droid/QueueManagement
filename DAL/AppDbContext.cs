@@ -23,7 +23,7 @@ public class AppDbContext : DbContext
         }
         else
         {
-            connectionString = "Server=SEMINAR_SERVER_NAME;Database=QueueManagementDB;Trusted_Connection=True;TrustServerCertificate=True;";
+            connectionString = "Server=library;Database=QueueManagementDB;Trusted_Connection=True;TrustServerCertificate=True;";
         }
 
         optionsBuilder.UseSqlServer(connectionString);

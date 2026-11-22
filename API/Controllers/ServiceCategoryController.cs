@@ -1,3 +1,4 @@
+using BLL;
 using DAL;
 using Entities;
 using Microsoft.AspNetCore.Mvc;
@@ -8,15 +9,19 @@ namespace API.Controllers
     [ApiController]
     public class ServiceCategoryController : ControllerBase
     {
-        private readonly ServiceCategoryDal _dal = new();
+
+        private readonly ServiceCategoryBl _bl = new();
 
         [HttpGet]
-        public ActionResult<List<ServiceCategory>> GetAll() => _dal.GetAll();
+        public ActionResult<List<ServiceCategory>> GetAll()
+        {
+            return _bl.GetAll();
+        }
 
         [HttpGet("{id}")]
         public ActionResult<ServiceCategory> GetById(int id)
         {
-            var c = _dal.GetById(id);
+            var c = _bl.GetById(id);
             if (c == null) return NotFound();
             return c;
         }
@@ -24,8 +29,7 @@ namespace API.Controllers
         [HttpPost]
         public IActionResult Add(ServiceCategory c)
         {
-            if (string.IsNullOrWhiteSpace(c.Name)) return BadRequest("Name is required");
-            _dal.Add(c);
+            if (!_bl.Add(c)) return BadRequest("Name is required");
             return Ok(c);
         }
 
@@ -33,10 +37,13 @@ namespace API.Controllers
         public IActionResult Update(ServiceCategory c)
         {
             if (string.IsNullOrWhiteSpace(c.Name)) return BadRequest("Name is required");
-            return _dal.Update(c) ? Ok() : NotFound();
+            return _bl.Update(c) ? Ok() : NotFound();
         }
 
         [HttpDelete("{id}")]
-        public IActionResult Delete(int id) => _dal.Delete(id) ? Ok() : NotFound();
+        public IActionResult Delete(int id)
+        { 
+            return _bl.Delete(id) ? Ok() : NotFound();
+        }
     }
 }
