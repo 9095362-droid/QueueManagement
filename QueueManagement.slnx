@@ -1,0 +1,7 @@
+<Solution>
+  <Project Path="API/API.csproj" Id="0f04649a-30b2-4a27-bc1f-f63d0b7e09ff" />
+  <Project Path="BLL/BLL.csproj" Id="7df95961-3dc1-4587-b3aa-94e99ccc5ac5" />
+  <Project Path="DAL/DAL.csproj" Id="7799f3bd-dc89-4958-87ce-0422f48ccc86" />
+  <Project Path="ENtities/Entities.csproj" Id="e933b387-0f5a-472d-9b85-1dc110787148" />
+  <Project Path="QueueManagement/QueueManagement.csproj" />
+</Solution>
