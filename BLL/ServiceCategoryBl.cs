@@ -33,9 +33,9 @@ namespace BLL
             return _dal.Update(c);
         }
 
-        public void Delete(int id)
+        public bool Delete(int id)
         {
-             _dal.Delete(id);
+            return _dal.Delete(id);
         }
     }
 }

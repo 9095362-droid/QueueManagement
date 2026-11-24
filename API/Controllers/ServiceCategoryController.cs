@@ -42,8 +42,8 @@ namespace API.Controllers
 
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
-        { 
-            return _bl.Delete(id) ? Ok() : NotFound();
+        {
+            return _bl.Delete(id) ? Ok() : NotFound(); 
         }
     }
 }
